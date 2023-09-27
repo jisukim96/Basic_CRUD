@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+	
+	<div class="container my-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{|/post/list|}">List</a></li>
+				<li class="breadcrumb-item active" aria-current="page">New</li>
+			</ol>
+		</nav>
+	<h2>게시글 작성</h2>
+	<form>
+	<input type="text" name="title">
+	<input type="text" name="contents">
+	<button type="submit"></button>
+	</form>
+</body>
+</html>

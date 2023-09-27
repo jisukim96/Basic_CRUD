@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width", initial-scale="1">
+<title>게시판 목록</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+	<div class="container my-3">
+	<table class= "table">
+		<thead class= "table-primary">
+			<tr>
+				<th>NO</th>
+				<th>TITLE</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="post, loop : ${postList}">
+				<td th:text="${post.id}">
+				<td>
+					<a th:href="@{|/post/detail/${post.id}|}" th:text="${post.title}"></a></td>
+	
+			</tr>
+		</tbody>
+	</table>
+			<a role="button" class="btn btn-danger" th:href="@{|/post/create|}">New</a>
+	</div>
+</body>
+</html>
