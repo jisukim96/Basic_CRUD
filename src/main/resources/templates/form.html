@@ -15,11 +15,18 @@
 				<li class="breadcrumb-item active" aria-current="page">New</li>
 			</ol>
 		</nav>
-	<h2>게시글 작성</h2>
-	<form>
-	<input type="text" name="title">
-	<input type="text" name="contents">
-	<button type="submit"></button>
+	<h2 class="my-3 border-bottom pb-2">게시글 작성</h2>
+	<form th:action="@{/post/create}" method="post">
+		<div class="mb-3">
+			<label for="title" class="form-label">Title</label>
+			<input type="text" name="title" id="title" class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="contents" class="form-label">Contents</label>
+			<input type="text" name="contents" id="contents" class="form-control">
+		</div>
+		<input type="submit" value="Save" class="btn btn-success">
 	</form>
+	</div>
 </body>
 </html>

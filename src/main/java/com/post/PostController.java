@@ -45,9 +45,13 @@ public class PostController {
 		model.addAttribute("postList",list);
 		return "list";
 	}
+	@GetMapping(value = "/create")
+	public String create () {
+		return "form";
+	}
 	
 	//게시글 생성
-	@PostMapping("/create")
+	@PostMapping(value =  "/create")
 	public String create (@Valid PostDTO postDTO,
 			BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) { return "form";};
