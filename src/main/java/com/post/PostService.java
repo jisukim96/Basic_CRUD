@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.post.Domain.Post;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
