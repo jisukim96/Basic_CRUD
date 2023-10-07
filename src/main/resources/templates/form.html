@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,15 +24,15 @@
 			</ol>
 		</nav>
 	<h2 class="my-3 border-bottom pb-2">게시글 작성</h2>
-	<form th:action="@{/post/create}" method="post" th:object="${postDTO}">
+	<form method="post" th:action="@{create}" th:object="${postDTO}">
 		<div class="mb-3">
 			<label for="title" class="form-label">Title</label>
-			<input type="text" name="title" th:field="*{title}" id="title" class="form-control" placeholder="제목을 입력해주세요">
-			<p class =filedError th:if = "${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect data</p>
+			<input type="text" name="title" id="title" class="form-control" placeholder="제목을 입력해주세요">
+			<p class =filedError th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect data</p>
 		</div>
 		<div class="mb-3">
 			<label for="contents" class="form-label" >Contents</label>
-			<input type="text" name="contents" th:field="*{contents}" id="contents" class="form-control" placeholder="내용을 입력해주세요">
+			<input type="text" name="contents" id="contents" class="form-control" placeholder="내용을 입력해주세요">
 			<p class="filedError" th:if="${#fields.hasErrors('contents')}" th:errors="*{contents}">Incorrenct data</p>
 		</div>
 

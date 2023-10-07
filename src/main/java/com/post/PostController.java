@@ -53,7 +53,7 @@ public class PostController {
 		model.addAttribute("postList",list);
 		return "list";
 	}
-	
+	//게시글 생성
 	//model에 form에 들어온 정보를 담아서 템플릿으로 전달해야함 빈 객체가 필요함
 	@GetMapping(value = "/create")
 	public String create (Model model) {
@@ -61,22 +61,23 @@ public class PostController {
 		return "form";
 	}
 	
-	//게시글 생성
+
 	@PostMapping(value =  "/create")
-	public String create (@Valid PostDTO postDTO,
-			BindingResult bindingResult, Model model) {
+	public String create (@Valid PostDTO postDTO, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) { return "form";};
-		
 		this.postService.create(postDTO);
-		return "list";
+		return "redirect:/post/list";
 	}
 	
+	
 	//게시글 수정
+	
+	
 	@PostMapping("/update/{Id}")
-	public String update(@PathVariable Integer Id,PostDTO postDTO,BindingResult bindingResult, Model model) {
+	public String update(@PathVariable Integer Id, PostDTO postDTO, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {return "edit";};
 		try {
-		this.postService.update(Id, postDTO);
+			this.postService.update(Id, postDTO);
 		}catch(NullPointerException e ) {
 			e.printStackTrace();
 		}
@@ -91,7 +92,7 @@ public class PostController {
 		}catch(NullPointerException e) {
 			e.printStackTrace();
 		}
-		return "list";
+		return "redirect:/post/list";
 	}
 	
 	

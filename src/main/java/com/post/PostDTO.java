@@ -3,22 +3,24 @@ package com.post;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostDTO {
 	public Integer id;
 	
-	@NotNull(message = "빈칸입니다! 제목을 입력해주세요")
-	public String title;
+	@NotEmpty(message = "빈칸입니다! 제목을 입력해주세요")
+	private String title;
 	
-	@NotNull(message = "빈칸입니다! 내용을 입력해주세요")
-	public String contents;
+	@NotEmpty(message = "빈칸입니다! 내용을 입력해주세요")
+	private String contents;
 	
-	public LocalDateTime createdDate;
+	private LocalDateTime createdDate;
 }

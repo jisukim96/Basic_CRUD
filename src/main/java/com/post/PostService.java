@@ -21,7 +21,8 @@ public class PostService {
 		Post post = new Post();
 		post.setTitle(postDTO.getTitle());
 		post.setContents(postDTO.getContents());
-		postRepository.save(post);
+		System.out.println(post);
+		this.postRepository.save(post);
 	}
 	
 	//게시글 단건 조회

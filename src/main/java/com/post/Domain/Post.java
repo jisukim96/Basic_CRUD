@@ -3,6 +3,7 @@ package com.post.Domain;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Column;
@@ -24,7 +25,7 @@ public class Post {
 
 	@Id
 	@Column(name = "postId")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(length = 50)
@@ -32,7 +33,7 @@ public class Post {
 	
 	private String contents;
 	
-	@CreatedDate
+	@CreationTimestamp
 	private LocalDateTime createdDate;
 	
 }
